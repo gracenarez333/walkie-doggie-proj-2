@@ -13,6 +13,8 @@ I will be using the [adopt a pet API](https://www.adoptapet.com/public/apis/pet_
 
 ## RESTful Routing Chart
 * this is still being edited i think
+
+
 | VERB | URL pattern | Action \(CRUD\) | Description |
 | :--- | :--- | :--- | :--- |
 | GET | / | Index \(Read\) | home page with login and  sign up |
