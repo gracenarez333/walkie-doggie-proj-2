@@ -1,6 +1,6 @@
 {
   "development": {
-    "database": "auth_intro_lesson",
+    "database": "adoptdb",
     "host": "127.0.0.1",
     "dialect": "postgres"
   }
