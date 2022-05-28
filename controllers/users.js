@@ -5,9 +5,6 @@ const cryptoJS = require('crypto-js')
 const bcrypt = require('bcryptjs')
 const axios = require('axios')
 
-// GET /users/browse
-router.get('/browse')
-
 // GET /users/new -- renders a form to create a new user
 router.get('/new', (req, res) => {
     res.render('users/new', { msg: null })

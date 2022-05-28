@@ -60,6 +60,7 @@ app.get('/', (req, res) => {
 
 // controllers
 app.use('/users', require('./controllers/users'))
+app.use('/pages', require('./controllers/pages'))
 
 // 404 error handler needs to go last
 // app.get('/*', (req, res) => {
