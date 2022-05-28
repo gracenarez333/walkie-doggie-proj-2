@@ -3,7 +3,10 @@ const router = express.Router()
 const db = require('../models')
 const cryptoJS = require('crypto-js')
 const bcrypt = require('bcryptjs')
-const { default: axios } = require('axios')
+const axios = require('axios')
+
+// GET /users/browse
+router.get('/browse')
 
 // GET /users/new -- renders a form to create a new user
 router.get('/new', (req, res) => {
