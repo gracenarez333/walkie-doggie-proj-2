@@ -1,1 +1,6 @@
 <h1>this will be the users personal favorite walk favs</h1>
+<% animal.forEach(animal => { %>
+    <div>
+        <a href="/home/about/<%= animal.id %>"><%= animal.name %></a>
+    </div>
+<% }) %>

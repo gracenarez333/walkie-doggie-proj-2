@@ -29,7 +29,7 @@ router.get('/browse', async (req, res) => {
         url: url,
         headers: {
           Authorization:
-            "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJ5VlZpbzFGS3UyTmx5M2NPWGUydUJvcHJmQTBXeFQ1aEdqTHg5NklWNU4xNHU5N0pYUiIsImp0aSI6IjhkYzliNWYzZjdmZTI2OTIxNjk1OGQ5ZTVkZmUxMDdjZDVlNGJjYzI1Y2QxMWM2MGNlZjYxY2U0NzY3ZjMwY2ZjMGNkNjIyNTRmNDllYTgwIiwiaWF0IjoxNjU0MDMxMDQzLCJuYmYiOjE2NTQwMzEwNDMsImV4cCI6MTY1NDAzNDY0Mywic3ViIjoiIiwic2NvcGVzIjpbXX0.l9ptCdGFVEdLluoaK3RXesS7AmqLuVFFqfCqFLEvif8nWeDlGyymsgJIodcN8YvKibsNCjDtyjpXZ3TlhANVG1iaFAWbmY0FGljOaWEeQ0WYbUifFxF_4qZjXTK-rMMX9kJyojcMXysd7BemM0Lki4T50d6dx8C9TysID_T6xoQ4GvhQdiZxDM5noo3B73zdnqnKl60mvZ38q3bAxojBpmexnhkpaMiBdjBXxVKHfEMyf-jaCmzXCBmyMO1z7KtNFgilqLsU-93fch6iPgZOskkNmTFnAHr1Yw2NlUA5G8xRX86ALidwhh4k9DZXsGKaDjfgiZfqE8-B3N2y3OJGSA",
+            "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJ5VlZpbzFGS3UyTmx5M2NPWGUydUJvcHJmQTBXeFQ1aEdqTHg5NklWNU4xNHU5N0pYUiIsImp0aSI6ImZkNjI2Mjg3YjkzY2NlYTAyMzc5MjcyZTA0YmJlNDNiZDc0ZDdmNTcxMjNmZjE3YmQwNmVlYTFmMzFhYjkyYzkyYmYyMWMwZWU4YWE1ZWE4IiwiaWF0IjoxNjU0MDM4OTI2LCJuYmYiOjE2NTQwMzg5MjYsImV4cCI6MTY1NDA0MjUyNiwic3ViIjoiIiwic2NvcGVzIjpbXX0.BNro01zSmNaJxHpfkoVEuGXSsgTSs4yzLjnmb9Y7OZ2R2HbCtXNGOf6yvxc6h8bCsKqBQE9i0bUmHdbphQR8p1COCF5V8lpgQ9X-p9YA6ZFAEK4-3WfuqdEXnERSxuHdbX_O7nEjUAhAqEskoO106-cuijag95QZy5emoAqW771jNxC7LUWyxxZxMRolx5vRSyUqmMWpPYuhuZrAClveNh6Hfw7tFAv5dNNhzsOOQ9MbdN9cit579-vHmPJFVLVIitOuT4y40SmxsylehCpwzxFECms2-bYA3mb3JG2j_z1v0wK9CsJzK5gPIzrAE5i7vaOomgFIMJlwflNEvEyDUw",
         },
       });
       allDogs = response.data.animals.filter(dog => dog.type === 'Dog')
@@ -44,26 +44,57 @@ router.get('/about/:id', async (req, res) => {
         res.render('users/login', { msg: 'please log in to continue' })
         return // end the route here
     }
-    const url = `https://api.petfinder.com/v2/animals/${ req.params.id }`;
-      const response = await axios({
-        method: "get",
-        url: url,
-        headers: {
-          Authorization:
-            "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJ5VlZpbzFGS3UyTmx5M2NPWGUydUJvcHJmQTBXeFQ1aEdqTHg5NklWNU4xNHU5N0pYUiIsImp0aSI6IjhkYzliNWYzZjdmZTI2OTIxNjk1OGQ5ZTVkZmUxMDdjZDVlNGJjYzI1Y2QxMWM2MGNlZjYxY2U0NzY3ZjMwY2ZjMGNkNjIyNTRmNDllYTgwIiwiaWF0IjoxNjU0MDMxMDQzLCJuYmYiOjE2NTQwMzEwNDMsImV4cCI6MTY1NDAzNDY0Mywic3ViIjoiIiwic2NvcGVzIjpbXX0.l9ptCdGFVEdLluoaK3RXesS7AmqLuVFFqfCqFLEvif8nWeDlGyymsgJIodcN8YvKibsNCjDtyjpXZ3TlhANVG1iaFAWbmY0FGljOaWEeQ0WYbUifFxF_4qZjXTK-rMMX9kJyojcMXysd7BemM0Lki4T50d6dx8C9TysID_T6xoQ4GvhQdiZxDM5noo3B73zdnqnKl60mvZ38q3bAxojBpmexnhkpaMiBdjBXxVKHfEMyf-jaCmzXCBmyMO1z7KtNFgilqLsU-93fch6iPgZOskkNmTFnAHr1Yw2NlUA5G8xRX86ALidwhh4k9DZXsGKaDjfgiZfqE8-B3N2y3OJGSA",
-        },
-      });
-    res.render('pages/about', { user: res.locals.user, dog: response.data })
+    try {
+        const url = `https://api.petfinder.com/v2/animals/${ req.params.id }`;
+        const response = await axios({
+            method: "get",
+            url: url,
+            headers: {
+                Authorization:
+                "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJ5VlZpbzFGS3UyTmx5M2NPWGUydUJvcHJmQTBXeFQ1aEdqTHg5NklWNU4xNHU5N0pYUiIsImp0aSI6ImZkNjI2Mjg3YjkzY2NlYTAyMzc5MjcyZTA0YmJlNDNiZDc0ZDdmNTcxMjNmZjE3YmQwNmVlYTFmMzFhYjkyYzkyYmYyMWMwZWU4YWE1ZWE4IiwiaWF0IjoxNjU0MDM4OTI2LCJuYmYiOjE2NTQwMzg5MjYsImV4cCI6MTY1NDA0MjUyNiwic3ViIjoiIiwic2NvcGVzIjpbXX0.BNro01zSmNaJxHpfkoVEuGXSsgTSs4yzLjnmb9Y7OZ2R2HbCtXNGOf6yvxc6h8bCsKqBQE9i0bUmHdbphQR8p1COCF5V8lpgQ9X-p9YA6ZFAEK4-3WfuqdEXnERSxuHdbX_O7nEjUAhAqEskoO106-cuijag95QZy5emoAqW771jNxC7LUWyxxZxMRolx5vRSyUqmMWpPYuhuZrAClveNh6Hfw7tFAv5dNNhzsOOQ9MbdN9cit579-vHmPJFVLVIitOuT4y40SmxsylehCpwzxFECms2-bYA3mb3JG2j_z1v0wK9CsJzK5gPIzrAE5i7vaOomgFIMJlwflNEvEyDUw",
+            },
+        });
+        res.render('pages/about', { user: res.locals.user, animal: response.data.animal })
+    } catch(err) {
+    console.log('FIRE', err)
+    }
 })
 
 // GET /home/favorites -- render saved dogs list per user profile
-router.get('/favorites', (req, res) => {
+router.get('/favorites', async (req, res) => {
     // check if user is authorized
     if (!res.locals.user) {
         res.render('users/login', { msg: 'please log in to continue' })
         return // end the route here
     }
-    res.render('pages/favorites', { user: res.locals.user })
+    const animal = await db.user.findAll({
+        where: {
+            id: res.locals.user.dataValues.id
+        }, include:[db.pet]
+    })
+    dog = animal[0].pets
+    console.log(dog)
+    res.render('pages/favorites', { user: res.locals.user, animal: dog })
+})
+
+// POST /home/favorites -- create a new favorite
+router.post('/favorites', async (req, res) => {
+    // check if usser is authorized
+    if (!res.locals.user) {
+        res.render('users/login', { msg: 'please log in to continue' })
+        return // end the route here
+    }
+    const [pet, created] = await db.pet.findOrCreate({
+        where: {
+            id: req.body.id
+        }, defaults: {
+            name: req.body.name
+        }
+    })
+    const user = await db.user.findByPk(res.locals.user.dataValues.id)
+    user.addPet(pet)
+    console.log(user)
+    res.redirect('/home/favorites')
 })
 
 

@@ -66,10 +66,10 @@ app.use('/home', require('./controllers/home'))
 // app.get('/*', (req, res) => {
 //   // render your 404 temp here
 // })
-app.use((req, res, next) => {
-  // render a 404 tempy
-  res.status(404).render('404')
-})
+// app.use((req, res, next) => {
+//   // render a 404 tempy
+//   res.status(404).render('404')
+// })
 // 500 error handler
 // needs to have all 4 params
 app.use((error, req, res, next) => {
