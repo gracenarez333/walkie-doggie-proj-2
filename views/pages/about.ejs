@@ -8,3 +8,9 @@
     <p><%= animal.tags %></p>
     <p><%= animal.description %></p>
 </div>
+<!-- form to create a new fav -->
+<form method="POST" action="/favorites">
+    <input hidden value="<%= animal.name %>" name="name"/>
+    <input hidden value="<%= animal.id %>" name="id"/>
+    <button type="submit">❤️</button>
+</form>
