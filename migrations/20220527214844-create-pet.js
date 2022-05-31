@@ -14,7 +14,7 @@ module.exports = {
       age: {
         type: Sequelize.INTEGER
       },
-      species: {
+      breed: {
         type: Sequelize.STRING
       },
       sex: {
