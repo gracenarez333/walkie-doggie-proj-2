@@ -66,7 +66,7 @@ router.post('/login', async (req, res, next) => {
             const encryptedId = cryptoJS.AES.encrypt(foundUser.id.toString(), process.env.ENC_KEY).toString()
             res.cookie('userId', encryptedId)
             // TODO: redirect to profile
-            res.redirect('/')
+            res.redirect('/home/home')
         } else {
             // if not then render the login form with a message
             res.render('users/login', { msg })
