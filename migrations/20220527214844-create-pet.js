@@ -20,14 +20,14 @@ module.exports = {
       sex: {
         type: Sequelize.STRING
       },
-      city: {
+      photos: {
         type: Sequelize.STRING
       },
-      state: {
+      tags: {
         type: Sequelize.STRING
       },
-      photo: {
-        type: Sequelize.STRING
+      description: {
+        type: Sequelize.TEXT
       },
       createdAt: {
         allowNull: false,
