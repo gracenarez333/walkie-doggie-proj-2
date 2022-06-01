@@ -86,7 +86,8 @@ router.post('/favorites', async (req, res) => {
     }
     const [pet, created] = await db.pet.findOrCreate({
         where: {
-            id: req.body.id
+            id: req.body.id,
+            photos: req.body.photos
         }, defaults: {
             name: req.body.name
         }
