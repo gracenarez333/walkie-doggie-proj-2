@@ -17,6 +17,14 @@
 </form>
 
 <h2>Comments:</h2>
+<% walkComments.forEach(comment => { %>
+    <h3><%= comment.user.email %></h3>
+    <p><%= comment.content %></p>
+    <form method="POST" action="/home/about/<%= animal.id %>/?_method=DELETE">
+        <input hidden value="<%= comment.id %>" name='id'/>
+        <button type="submit">Delete!</button>
+    </form>
+  <% }) %>
 
 <form action="/home/about/<%= animal.id %>" method="POST">
   <div class="form">
