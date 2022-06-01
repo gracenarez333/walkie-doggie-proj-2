@@ -60,7 +60,6 @@ router.get('/about/:id', async (req, res) => {
             },
             include: [db.user]
         })
-        console.log(walkComments)
         res.render('pages/about', { user: res.locals.user, animal: response.data.animal, walkComments })
     } catch(err) {
     console.log('FIRE', err)

@@ -22,7 +22,9 @@
     <p><%= comment.content %></p>
     <form method="POST" action="/home/about/<%= animal.id %>/?_method=DELETE">
         <input hidden value="<%= comment.id %>" name='id'/>
-        <button type="submit">Delete!</button>
+        <% if (comment.dataValues.user.id === user.id){ %>
+             <button type="submit">Delete!</button>
+       <% } %>
     </form>
   <% }) %>
 
