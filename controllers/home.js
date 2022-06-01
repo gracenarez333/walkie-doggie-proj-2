@@ -29,7 +29,7 @@ router.get('/browse', async (req, res) => {
         url: url,
         headers: {
           Authorization:
-            "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJ5VlZpbzFGS3UyTmx5M2NPWGUydUJvcHJmQTBXeFQ1aEdqTHg5NklWNU4xNHU5N0pYUiIsImp0aSI6ImZkNjI2Mjg3YjkzY2NlYTAyMzc5MjcyZTA0YmJlNDNiZDc0ZDdmNTcxMjNmZjE3YmQwNmVlYTFmMzFhYjkyYzkyYmYyMWMwZWU4YWE1ZWE4IiwiaWF0IjoxNjU0MDM4OTI2LCJuYmYiOjE2NTQwMzg5MjYsImV4cCI6MTY1NDA0MjUyNiwic3ViIjoiIiwic2NvcGVzIjpbXX0.BNro01zSmNaJxHpfkoVEuGXSsgTSs4yzLjnmb9Y7OZ2R2HbCtXNGOf6yvxc6h8bCsKqBQE9i0bUmHdbphQR8p1COCF5V8lpgQ9X-p9YA6ZFAEK4-3WfuqdEXnERSxuHdbX_O7nEjUAhAqEskoO106-cuijag95QZy5emoAqW771jNxC7LUWyxxZxMRolx5vRSyUqmMWpPYuhuZrAClveNh6Hfw7tFAv5dNNhzsOOQ9MbdN9cit579-vHmPJFVLVIitOuT4y40SmxsylehCpwzxFECms2-bYA3mb3JG2j_z1v0wK9CsJzK5gPIzrAE5i7vaOomgFIMJlwflNEvEyDUw",
+            "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJ5VlZpbzFGS3UyTmx5M2NPWGUydUJvcHJmQTBXeFQ1aEdqTHg5NklWNU4xNHU5N0pYUiIsImp0aSI6IjI2YWI1OTNmMTg0YTljZGNjZDNlYmNmZTI3NmRiM2Y5Njc2ZTdjMjk5MThkNDUwZWQ3MGM2ZmRjOTdmMWM4MjAwOTNlNDg4NWRiZTlkMDBkIiwiaWF0IjoxNjU0MTA2OTA5LCJuYmYiOjE2NTQxMDY5MDksImV4cCI6MTY1NDExMDUwOSwic3ViIjoiIiwic2NvcGVzIjpbXX0.gNDyUq5zsO8NdsAFkl1tkYNDMFVydkKn6tXgOhV3TE12hPqzbucTZ2_OU63CgsoHovN48abCOAkTZZDR9tE-lY9GptUXrYgT0W4h8sGVnw6HYEA90wSEeQDK_PHPZcYoFksO-BWJYnDwWI2009e1wTjOhrxOiCLHhdNL8yHp5jDre5d0zc1jDdlKrC6Ut-ww7NJbc4xgnlfHgp4ZpSJMRhBkCmb3AeWin6876hVgEXmLp6l80g4PjEkLAxlUnEbN4srej8vIPV4Gn2QOJYbc2yQgVgQpOiSH6UfNQCNrWpcMshGIOxZIGrBMjQsnulfIx7YB7J8q6KN5j2OsPBSUFQ",
         },
       });
       allDogs = response.data.animals.filter(dog => dog.type === 'Dog')
@@ -51,7 +51,7 @@ router.get('/about/:id', async (req, res) => {
             url: url,
             headers: {
                 Authorization:
-                "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJ5VlZpbzFGS3UyTmx5M2NPWGUydUJvcHJmQTBXeFQ1aEdqTHg5NklWNU4xNHU5N0pYUiIsImp0aSI6ImZkNjI2Mjg3YjkzY2NlYTAyMzc5MjcyZTA0YmJlNDNiZDc0ZDdmNTcxMjNmZjE3YmQwNmVlYTFmMzFhYjkyYzkyYmYyMWMwZWU4YWE1ZWE4IiwiaWF0IjoxNjU0MDM4OTI2LCJuYmYiOjE2NTQwMzg5MjYsImV4cCI6MTY1NDA0MjUyNiwic3ViIjoiIiwic2NvcGVzIjpbXX0.BNro01zSmNaJxHpfkoVEuGXSsgTSs4yzLjnmb9Y7OZ2R2HbCtXNGOf6yvxc6h8bCsKqBQE9i0bUmHdbphQR8p1COCF5V8lpgQ9X-p9YA6ZFAEK4-3WfuqdEXnERSxuHdbX_O7nEjUAhAqEskoO106-cuijag95QZy5emoAqW771jNxC7LUWyxxZxMRolx5vRSyUqmMWpPYuhuZrAClveNh6Hfw7tFAv5dNNhzsOOQ9MbdN9cit579-vHmPJFVLVIitOuT4y40SmxsylehCpwzxFECms2-bYA3mb3JG2j_z1v0wK9CsJzK5gPIzrAE5i7vaOomgFIMJlwflNEvEyDUw",
+                "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJ5VlZpbzFGS3UyTmx5M2NPWGUydUJvcHJmQTBXeFQ1aEdqTHg5NklWNU4xNHU5N0pYUiIsImp0aSI6IjI2YWI1OTNmMTg0YTljZGNjZDNlYmNmZTI3NmRiM2Y5Njc2ZTdjMjk5MThkNDUwZWQ3MGM2ZmRjOTdmMWM4MjAwOTNlNDg4NWRiZTlkMDBkIiwiaWF0IjoxNjU0MTA2OTA5LCJuYmYiOjE2NTQxMDY5MDksImV4cCI6MTY1NDExMDUwOSwic3ViIjoiIiwic2NvcGVzIjpbXX0.gNDyUq5zsO8NdsAFkl1tkYNDMFVydkKn6tXgOhV3TE12hPqzbucTZ2_OU63CgsoHovN48abCOAkTZZDR9tE-lY9GptUXrYgT0W4h8sGVnw6HYEA90wSEeQDK_PHPZcYoFksO-BWJYnDwWI2009e1wTjOhrxOiCLHhdNL8yHp5jDre5d0zc1jDdlKrC6Ut-ww7NJbc4xgnlfHgp4ZpSJMRhBkCmb3AeWin6876hVgEXmLp6l80g4PjEkLAxlUnEbN4srej8vIPV4Gn2QOJYbc2yQgVgQpOiSH6UfNQCNrWpcMshGIOxZIGrBMjQsnulfIx7YB7J8q6KN5j2OsPBSUFQ",
             },
         });
         res.render('pages/about', { user: res.locals.user, animal: response.data.animal })
@@ -96,6 +96,23 @@ router.post('/favorites', async (req, res) => {
     user.addPet(pet)
     console.log(user)
     res.redirect('/home/favorites')
+})
+
+// DELETE /home/favorites -- deletes a favorite from the list
+router.delete('/favorites', async (req, res) => {
+    try {
+        // find an instance
+        const instance = await db.pet.findOne({
+            where: {
+                id: req.body.id
+            }
+        })
+        console.log(instance)
+        await instance.destroy()
+        res.redirect('/home/favorites')
+    } catch (err) {
+        console.log('FIRE', err)
+    }
 })
 
 

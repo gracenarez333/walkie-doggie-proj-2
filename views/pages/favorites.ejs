@@ -2,5 +2,9 @@
 <% animal.forEach(animal => { %>
     <div>
         <a href="/home/about/<%= animal.id %>"><%= animal.name %></a>
+        <form method="POST" action="/home/favorites/?_method=DELETE">
+            <input hidden value="<%= animal.id %>" name='id'/>
+            <button type="submit">Delete!</button>
+        </form>
     </div>
 <% }) %>

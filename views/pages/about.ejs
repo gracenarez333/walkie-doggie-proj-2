@@ -15,3 +15,14 @@
     <input hidden value="<%= animal.id %>" name="id"/>
     <button type="submit">❤️</button>
 </form>
+
+<h2>Comments:</h2>
+
+<form action="/home/about/<%= animal.id %>" method="POST">
+  <div class="form">
+    <label for="content">Content</label>
+    <input type="text" class="form" id="content" name="content" required></textarea>
+  </div>
+
+  <input type="submit" class="btn">
+</form>
