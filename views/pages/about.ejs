@@ -24,7 +24,14 @@
         <input hidden value="<%= comment.id %>" name='id'/>
         <% if (comment.dataValues.user.id === user.id){ %>
              <button type="submit">Delete!</button>
-       <% } %>
+        <% } %>
+    </form>
+    <form method="GET" action="/home/edit/<%= comment.id %>">
+        <input hidden type='number' value="<%= comment.id %>" name="id"/>
+        <input hidden type='number' value="<%= animal.id %>" name="animalId"/>
+        <% if (comment.dataValues.user.id === user.id){ %>
+            <button type="submit">Edit!</button>
+        <% } %>
     </form>
   <% }) %>
 

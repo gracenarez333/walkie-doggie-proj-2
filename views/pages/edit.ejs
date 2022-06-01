@@ -1,0 +1,5 @@
+<h1>edit your comment</h1>
+<form method="POST" action="/home/edit/<%= foundComment.id %>/?_method=PUT">
+    <input type="text" name="content" value="<%= foundComment.dataValues.content %>"/>
+    <button type="submit">Update!</button>
+</form>

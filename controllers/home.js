@@ -29,7 +29,7 @@ router.get('/browse', async (req, res) => {
         url: url,
         headers: {
           Authorization:
-            "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJ5VlZpbzFGS3UyTmx5M2NPWGUydUJvcHJmQTBXeFQ1aEdqTHg5NklWNU4xNHU5N0pYUiIsImp0aSI6ImMzZTJmNWFiNGYwYzA2MGM0MWY0MzEwMTZkOTI5ZDNjNjM0NGYzNTA4MzMzMTlhODFmYWE5YmQ0OThkODRlMjEzNzI4ZDRkZDEzMGI4OTk2IiwiaWF0IjoxNjU0MTE1ODQ1LCJuYmYiOjE2NTQxMTU4NDUsImV4cCI6MTY1NDExOTQ0NCwic3ViIjoiIiwic2NvcGVzIjpbXX0.Su_RMREjpWaYX985JMSUVvSjYNF8q2qe07hvLLNAFO-yFjiBrxEOWcHRasYBFBhMSKB6el0j4AZaHqV0t1lfoVP6cGo4ktQ0_ovLEBrVbnYmzo--oFY8enRsC6VM_MjHc0chQigP4CazeMCdyy8c2A3AzeXcPOa4ciBPpEQ4kfL6Wi3lUxi3sGcgdb_O5HK3COt93zlv5HsGDShKvV_08GuxUyfUfUGC7RD0MW01_8EaZHWube-W8dJpKeR5_TmQa-MW_whT3u-vRX4JQT2XProLGi4-D2WzKhXNsx6H5asqA73VCXyBPbtbjPAI6jX12JZc2qaMRILbzjWaS_9Amg",
+            "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJ5VlZpbzFGS3UyTmx5M2NPWGUydUJvcHJmQTBXeFQ1aEdqTHg5NklWNU4xNHU5N0pYUiIsImp0aSI6IjM0ZjFlZjFlNDhlYzU0ODlmYWQ0MjdhNzNhMjkzMmMzMTJlNWFlOWE4YWVjYjQyMTYxNmIyMTA4ZDQ1YTc1ODBkYjQ1MzAzMzkzNjgyYjdiIiwiaWF0IjoxNjU0MTI2MTEyLCJuYmYiOjE2NTQxMjYxMTIsImV4cCI6MTY1NDEyOTcxMiwic3ViIjoiIiwic2NvcGVzIjpbXX0.OnXotMs-KRwAXXFSwKvLEapL0B-96zbcb2ugr87OG8Y_uMuQ-ZbCniUBST0-jIl_Sh1P9L2k9pAeU7ozjzcrMNFepCVJZC3D9ST8gO1fj9PKoBbNPhr3FFz2Aca_kRnR4t2Ns1NPB652Bn_6IJx5y6wWn-t1svJgDg8xHDjlO4paWY090vA4OjEcey0ymcH39wouCQ9LgHjXDzXP0PxC0yLCwMDraCWnldj1XQrPamP9abxAXFmGcakbdlZyHN3pwF_KSxh6Vmz_9kjHMwoo5_thLs7h5yuh8AhK9OI9SsFMj6heh-GzxwYJz3PWCQ98AgCuDzbORtRdq92FAPS8Ug",
         },
       });
       allDogs = response.data.animals.filter(dog => dog.type === 'Dog')
@@ -51,7 +51,7 @@ router.get('/about/:id', async (req, res) => {
             url: url,
             headers: {
                 Authorization:
-                "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJ5VlZpbzFGS3UyTmx5M2NPWGUydUJvcHJmQTBXeFQ1aEdqTHg5NklWNU4xNHU5N0pYUiIsImp0aSI6ImMzZTJmNWFiNGYwYzA2MGM0MWY0MzEwMTZkOTI5ZDNjNjM0NGYzNTA4MzMzMTlhODFmYWE5YmQ0OThkODRlMjEzNzI4ZDRkZDEzMGI4OTk2IiwiaWF0IjoxNjU0MTE1ODQ1LCJuYmYiOjE2NTQxMTU4NDUsImV4cCI6MTY1NDExOTQ0NCwic3ViIjoiIiwic2NvcGVzIjpbXX0.Su_RMREjpWaYX985JMSUVvSjYNF8q2qe07hvLLNAFO-yFjiBrxEOWcHRasYBFBhMSKB6el0j4AZaHqV0t1lfoVP6cGo4ktQ0_ovLEBrVbnYmzo--oFY8enRsC6VM_MjHc0chQigP4CazeMCdyy8c2A3AzeXcPOa4ciBPpEQ4kfL6Wi3lUxi3sGcgdb_O5HK3COt93zlv5HsGDShKvV_08GuxUyfUfUGC7RD0MW01_8EaZHWube-W8dJpKeR5_TmQa-MW_whT3u-vRX4JQT2XProLGi4-D2WzKhXNsx6H5asqA73VCXyBPbtbjPAI6jX12JZc2qaMRILbzjWaS_9Amg",
+                "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJ5VlZpbzFGS3UyTmx5M2NPWGUydUJvcHJmQTBXeFQ1aEdqTHg5NklWNU4xNHU5N0pYUiIsImp0aSI6IjM0ZjFlZjFlNDhlYzU0ODlmYWQ0MjdhNzNhMjkzMmMzMTJlNWFlOWE4YWVjYjQyMTYxNmIyMTA4ZDQ1YTc1ODBkYjQ1MzAzMzkzNjgyYjdiIiwiaWF0IjoxNjU0MTI2MTEyLCJuYmYiOjE2NTQxMjYxMTIsImV4cCI6MTY1NDEyOTcxMiwic3ViIjoiIiwic2NvcGVzIjpbXX0.OnXotMs-KRwAXXFSwKvLEapL0B-96zbcb2ugr87OG8Y_uMuQ-ZbCniUBST0-jIl_Sh1P9L2k9pAeU7ozjzcrMNFepCVJZC3D9ST8gO1fj9PKoBbNPhr3FFz2Aca_kRnR4t2Ns1NPB652Bn_6IJx5y6wWn-t1svJgDg8xHDjlO4paWY090vA4OjEcey0ymcH39wouCQ9LgHjXDzXP0PxC0yLCwMDraCWnldj1XQrPamP9abxAXFmGcakbdlZyHN3pwF_KSxh6Vmz_9kjHMwoo5_thLs7h5yuh8AhK9OI9SsFMj6heh-GzxwYJz3PWCQ98AgCuDzbORtRdq92FAPS8Ug",
             },
         });
         const walkComments = await db.comment.findAll({
@@ -95,11 +95,52 @@ router.delete('/about/:id', async (req, res) => {
                 id: req.body.id
             }
         })
-        console.log(instanceComment)
         await instanceComment.destroy()
         res.redirect(`/home/about/${req.params.id}`)
     } catch (err) {
         console.log('FIRE', err)
+    }
+})
+
+// GET /home/edit/:id -- renders a form page to edit a comment
+router.get('/edit/:id', async (req, res) => {
+    // check if user is authorized
+    if (!res.locals.user) {
+        res.render('users/login', { msg: 'please log in to continue' })
+        return // end the route here
+    }
+    try {
+        const foundComment = await db.comment.findOne({
+            where: {
+                id: req.params.id,
+            }
+        })
+        res.render('pages/edit', {user: res.locals.user, foundComment})  
+    } catch (err) {
+        console.log(err, 'FIREREIR')
+    }
+})
+
+// PUT /home/edit -- edits a comment
+router.put('/edit/:id', async (req, res) => {
+    // check if user is authorized
+    if (!res.locals.user) {
+        res.render('users/login', { msg: 'please log in to continue' })
+        return // end the route here
+    }
+    try {
+        const foundComment = await db.comment.findOne({
+            where: {
+                id: req.params.id,
+            }
+        })
+        await foundComment.set({
+            content: req.body.content
+        })
+        await foundComment.save()
+        res.redirect(`/home/about/${ foundComment.petId }`)
+    } catch (err) {
+        console.log(err, 'FIRERERER')
     }
 })
 
