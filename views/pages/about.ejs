@@ -1,12 +1,5 @@
-<h1>this will have details of each dog and a comment section</h1>
-<div>
-    <img src= "<%= (animal.photos[0]) ? animal.photos[0].medium : 'null' %>"/>
-    <h2><%= animal.name %></h2>
-    <p><%= animal.age %></p>
-    <p><%= animal.breed %></p>
-    <p><%= animal.sex %></p>
-    <p><%= animal.tags %></p>
-</div>
+<h1>All About <%= animal.name %>!</h1>
+<p>Take <%= animal.name %> on a walk today! Message <%= animal.name %>'s owner for more info on their walk and care schedule!</p>
 <!-- form to create a new fav -->
 <form method="POST" action="/home/favorites">
     <input hidden value="<%= animal.name %>" name="name"/>
@@ -14,6 +7,14 @@
     <input hidden value="<%= animal.id %>" name="id"/>
     <button type="submit">❤️</button>
 </form>
+<div>
+    <img src= "<%= (animal.photos[0]) ? animal.photos[0].medium : 'null' %>"/>
+    <h2><%= animal.name %></h2>
+    <p>Age: <%= animal.age %></p>
+    <p>Breed: <%= animal.breed %></p>
+    <p>Sex: <%= animal.sex %></p>
+    <p>Tags: <%= animal.tags %></p>
+</div>
 
 <h2>Comments:</h2>
 <% walkComments.forEach(comment => { %>
@@ -36,9 +37,9 @@
 
 <form action="/home/about/<%= animal.id %>" method="POST">
   <div class="form">
-    <label for="content">Content</label>
-    <input type="text" class="form" id="content" name="content" required></textarea>
+    <label for="content">Share your experience:</label>
+    <input type="text" class="form" id="content" name="content" placeholder='Tell us about the walk!' required></textarea>
   </div>
 
-  <input type="submit" class="btn">
+  <button type="submit">Comment!</button>
 </form>
