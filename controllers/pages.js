@@ -4,6 +4,7 @@ const db = require('../models')
 const cryptoJS = require('crypto-js')
 const bcrypt = require('bcryptjs')
 const axios = require('axios')
+const accessToken = require('../token.js')
 
 
 // GET /home/home -- render a home page with a search query
@@ -23,17 +24,22 @@ router.get('/browse', async (req, res) => {
         res.render('users/login', { msg: 'please log in to continue' })
         return // end the route here
     }
-    const url = "https://api.petfinder.com/v2/animals";
-      const response = await axios({
-        method: "get",
-        url: url,
-        headers: {
-          Authorization:
-            "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJ5VlZpbzFGS3UyTmx5M2NPWGUydUJvcHJmQTBXeFQ1aEdqTHg5NklWNU4xNHU5N0pYUiIsImp0aSI6IjcyY2I5MjhjYTQ3ZjYyNjI5ZTBkMDAyMjUyZmRhZjAxYjEzNjE1MGRlZTYxMTRiNGVmNzEzOWE0ZjU1OWFjNGMzNGZmMWEyNWRiNGRhNWM0IiwiaWF0IjoxNjU0MjAzMTUwLCJuYmYiOjE2NTQyMDMxNTAsImV4cCI6MTY1NDIwNjc1MCwic3ViIjoiIiwic2NvcGVzIjpbXX0.hY2RTbUBmIs-q9rRkDok4MZVSe_-FdFnys2nb1OsRnsSJ7phU5S10F9OS4Adsv84PpX61MoP2cYMqOJMLdhMMZPB99BcdGi7-c7VH_G7vSZgRTuA2GAhZPGySiwUf_YwpGCl-NK_xwClXn1B7MkINAQdwwOe6NKm0dw-KmD-PFA2gww-aOtpGPje0LbLvvhNid_ABbO2kON6ooi7bjpRUcZ4H9DPziCK6zJ8ykd4_UkEoHim06_CtJ9tygFQaRzACPrKK6aG1R0cGcN09q4d8ocwMJFs-J-5MUBBqlRABfloUdbSlK8cYiVjogrJKr-S2N6zwiIXBlT-pTv1nX_Ubg",
-        },
-      });
-      allDogs = response.data.animals.filter(dog => dog.type === 'Dog')
-    res.render('pages/browse', { user: res.locals.user, animals: allDogs })
+    try {
+        const header = await accessToken()
+        const url = "https://api.petfinder.com/v2/animals";
+          const response = await axios({
+            method: "get",
+            url: url,
+            headers: {
+              Authorization:
+                header,
+            },
+          });
+          allDogs = response.data.animals.filter(dog => dog.type === 'Dog')
+        res.render('pages/browse', { user: res.locals.user, animals: allDogs })   
+    } catch (err) {
+        console.log(err, 'FIRE')
+    }
 })
 
 // GET /home/about -- render saved dogs list per user profile
@@ -44,13 +50,14 @@ router.get('/about/:id', async (req, res) => {
         return // end the route here
     }
     try {
+        const header = await accessToken()
         const url = `https://api.petfinder.com/v2/animals/${ req.params.id }`;
         const response = await axios({
             method: "get",
             url: url,
             headers: {
                 Authorization:
-                "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJ5VlZpbzFGS3UyTmx5M2NPWGUydUJvcHJmQTBXeFQ1aEdqTHg5NklWNU4xNHU5N0pYUiIsImp0aSI6IjcyY2I5MjhjYTQ3ZjYyNjI5ZTBkMDAyMjUyZmRhZjAxYjEzNjE1MGRlZTYxMTRiNGVmNzEzOWE0ZjU1OWFjNGMzNGZmMWEyNWRiNGRhNWM0IiwiaWF0IjoxNjU0MjAzMTUwLCJuYmYiOjE2NTQyMDMxNTAsImV4cCI6MTY1NDIwNjc1MCwic3ViIjoiIiwic2NvcGVzIjpbXX0.hY2RTbUBmIs-q9rRkDok4MZVSe_-FdFnys2nb1OsRnsSJ7phU5S10F9OS4Adsv84PpX61MoP2cYMqOJMLdhMMZPB99BcdGi7-c7VH_G7vSZgRTuA2GAhZPGySiwUf_YwpGCl-NK_xwClXn1B7MkINAQdwwOe6NKm0dw-KmD-PFA2gww-aOtpGPje0LbLvvhNid_ABbO2kON6ooi7bjpRUcZ4H9DPziCK6zJ8ykd4_UkEoHim06_CtJ9tygFQaRzACPrKK6aG1R0cGcN09q4d8ocwMJFs-J-5MUBBqlRABfloUdbSlK8cYiVjogrJKr-S2N6zwiIXBlT-pTv1nX_Ubg",
+                header,
             },
         });
         const walkComments = await db.comment.findAll({
