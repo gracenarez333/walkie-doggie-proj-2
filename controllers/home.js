@@ -33,7 +33,6 @@ router.get('/browse', async (req, res) => {
         },
       });
       allDogs = response.data.animals.filter(dog => dog.type === 'Dog')
-      console.log(allDogs)
     res.render('pages/browse', { user: res.locals.user, animals: allDogs })
 })
 
