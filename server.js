@@ -20,6 +20,7 @@ app.use(require('express-ejs-layouts'))
 app.use(express.urlencoded({ extended: false }))
 app.use(cookieParser())
 app.use(methodOverride("_method"))
+app.use(express.static(__dirname + '/public'))
 
 // DIY middlewaare
 // happens on every rewuest
