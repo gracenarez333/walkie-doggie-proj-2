@@ -73,7 +73,7 @@ router.post('/about/:id', async (req, res) => {
             userId: res.locals.user.dataValues.id,
             petId: req.params.id
         })
-        res.redirect(`/home/about/${req.params.id}`)
+        res.redirect(`/pages/about/${req.params.id}`)
     } catch (err) {
         console.log('FIREER', err)
     }
@@ -95,7 +95,7 @@ router.delete('/about/:id', async (req, res) => {
             }
         })
         await instanceComment.destroy()
-        res.redirect(`/home/about/${req.params.id}`)
+        res.redirect(`/pages/about/${req.params.id}`)
     } catch (err) {
         console.log('FIRE', err)
     }
@@ -137,7 +137,7 @@ router.put('/edit/:id', async (req, res) => {
             content: req.body.content
         })
         await foundComment.save()
-        res.redirect(`/home/about/${ foundComment.petId }`)
+        res.redirect(`/pages/about/${ foundComment.petId }`)
     } catch (err) {
         console.log(err, 'FIRERERER')
     }
@@ -178,7 +178,7 @@ router.post('/favorites', async (req, res) => {
     const user = await db.user.findByPk(res.locals.user.dataValues.id)
     user.addPet(pet)
     console.log(user)
-    res.redirect('/home/favorites')
+    res.redirect('/pages/favorites')
 })
 
 // DELETE /home/favorites -- deletes a favorite from the list
@@ -197,7 +197,7 @@ router.delete('/favorites', async (req, res) => {
         })
         console.log(instance)
         await instance.destroy()
-        res.redirect('/home/favorites')
+        res.redirect('/pages/favorites')
     } catch (err) {
         console.log('FIRE', err)
     }

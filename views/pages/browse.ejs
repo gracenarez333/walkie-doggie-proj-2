@@ -3,6 +3,6 @@
 <% animals.forEach(animal => { %>
     <div>
         <img src= "<%= (animal.photos[0]) ? animal.photos[0].medium : 'null' %>"/>
-        <a href="/home/about/<%= animal.id %>"><%= animal.name %></a>
+        <a href="/pages/about/<%= animal.id %>"><%= animal.name %></a>
     </div>
 <% }) %>

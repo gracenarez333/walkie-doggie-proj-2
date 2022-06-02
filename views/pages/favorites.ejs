@@ -3,8 +3,8 @@
 <% animal.forEach(animal => { %>
     <div>
         <img src= "<%= (animal.photos[0]) ? animal.photos[0].medium : 'null' %>"/>
-        <a href="/home/about/<%= animal.id %>"><%= animal.name %></a>
-        <form method="POST" action="/home/favorites/?_method=DELETE">
+        <a href="/pages/about/<%= animal.id %>"><%= animal.name %></a>
+        <form method="POST" action="/pages/favorites/?_method=DELETE">
             <input hidden value="<%= animal.id %>" name='id'/>
             <button type="submit">Delete!</button>
         </form>
