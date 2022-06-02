@@ -5,7 +5,7 @@
     <input hidden value="<%= animal.name %>" name="name"/>
     <input hidden value="<%= animal.photos[0] %>" name="photos"/>
     <input hidden value="<%= animal.id %>" name="id"/>
-    <button type="submit">❤️</button>
+    <button class='btn btn-light' type="submit">❤️</button>
 </form>
 <div>
     <img src= "<%= (animal.photos[0]) ? animal.photos[0].medium : 'null' %>"/>
@@ -23,14 +23,14 @@
     <form method="POST" action="/pages/about/<%= animal.id %>/?_method=DELETE">
         <input hidden value="<%= comment.id %>" name='id'/>
         <% if (comment.dataValues.user.id === user.id){ %>
-             <button type="submit">Delete!</button>
+             <button class='btn btn-danger' type="submit">Delete!</button>
         <% } %>
     </form>
     <form method="GET" action="/pages/edit/<%= comment.id %>">
         <input hidden type='number' value="<%= comment.id %>" name="id"/>
         <input hidden type='number' value="<%= animal.id %>" name="animalId"/>
         <% if (comment.dataValues.user.id === user.id){ %>
-            <button type="submit">Edit!</button>
+            <button class='btn btn-warning' type="submit">Edit!</button>
         <% } %>
     </form>
   <% }) %>
@@ -41,5 +41,5 @@
     <input type="text" class="form" id="content" name="content" placeholder='Tell us about the walk!' required></textarea>
   </div>
 
-  <button type="submit">Comment!</button>
+  <button class='btn btn-success' type="submit">Comment!</button>
 </form>

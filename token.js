@@ -19,6 +19,7 @@ require('dotenv').config()
 // }
 // testData()
 
+// this generates a new access token for the user everytime the user does something
 const getAccessToken = async () => {
   let gettingToken = `grant_type=client_credentials&client_id=${process.env.API_KEY}&client_secret=${process.env.API_SECRET}`
   try {

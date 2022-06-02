@@ -1,16 +1,20 @@
-<% if (msg) { %>
-    <div>
-        <p><%= msg %></p>
-    </div>
-<% } %>
-
-<h1>Already have an account? Login!</h1>
-<form action="/users/login" method="POST">
-    <label for="email">Email:</label>
-    <input id="email" type="email" name="email" placeholder="enter your email" required/>
-
-    <label for="password">Password:</label>
-    <input id="password" type="password" name="password" placeholder="enter your password" required/>
-
-    <button type="submit">Login</button>
-</form>
+<div id="login" class="container my-flex d-flex flex-column justify-content-center align-items-center">
+    <% if (msg) { %>
+        <div>
+            <p><%= msg %></p>
+        </div>
+    <% } %>
+    
+    <h1>Already have an account? Login!</h1>
+    <form action="/users/login" method="POST" class="d-flex flex-column w-25 form-control">
+        <div class="form-floating mb-3">
+            <input class='form-control' id="email" type="email" name="email" placeholder="enter your email" required/>
+            <label for="email">Email:</label>
+        </div>
+        <div class="form-floating mb-3">
+            <input class='form-control' id="password" type="password" name="password" placeholder="enter your password" required/>
+            <label for="password">Password:</label>
+        </div>
+        <button type="submit" class='btn btn-success'>Login</button>
+    </form>
+</div>

@@ -1,5 +1,8 @@
 <h1>Have you walked this dog recently? Need to update or edit your experience? Do it now!</h1>
 <form method="POST" action="/pages/edit/<%= foundComment.id %>/?_method=PUT">
-    <input type="text" name="content" value="<%= foundComment.dataValues.content %>"/>
-    <button type="submit">Update!</button>
+    <div class="form-floating">
+        <input class='form-control' id='content' type="text" name="content" value="<%= foundComment.dataValues.content %>"/>
+        <label for="content">Content:</label>
+    </div>
+    <button class='btn btn-success' type="submit">Update!</button>
 </form>

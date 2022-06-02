@@ -163,7 +163,6 @@ router.get('/favorites', async (req, res) => {
         }, include:[db.pet]
     })
     dog = animal[0].pets
-    console.log(dog)
     res.render('pages/favorites', { user: res.locals.user, animal: dog })
 })
 
@@ -202,7 +201,6 @@ router.delete('/favorites', async (req, res) => {
                 id: req.body.id
             }
         })
-        console.log(instance)
         await instance.destroy()
         res.redirect('/pages/favorites')
     } catch (err) {
