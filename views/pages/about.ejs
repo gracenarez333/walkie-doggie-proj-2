@@ -2,25 +2,41 @@
 <h1>All About <%= animal.name %>!</h1>
 <p>Take <%= animal.name %> on a walk today! Message <%= animal.name %>'s owner for more info on their walk and care schedule!</p>
 <!-- form to create a new fav -->
-<div class="d-flex flex-wrap">
-  <form method="POST" action="/pages/favorites">
-      <input hidden value="<%= animal.name %>" name="name"/>
-      <input hidden value="<%= animal.photos[0].medium %>" name="photos"/>
-      <input hidden value="<%= animal.id %>" name="id"/>
-      <button class='btn fav-butt' type="submit">❤️</button>
-  </form>
-  <div class="card my-3 my-cards">
-      <img class='card-img-top dog-imgs' src= "<%= (animal.photos[0]) ? animal.photos[0].medium : 'https://place.dog/300/200' %>"/>
-      <div class="card-body">
-        <p class="card-title">Age: <%= animal.age %></p>
-        <p>Tags: <%= animal.tags %></p>
-      </div>
+<div class="d-flex flex-wrap justify-content-evenly">
+  <div class="d-flex flex-wrap flex-column justify-content">
+    <div class="card my-3 my-cards">
+        <img class='card-img-top dog-imgs' src= "<%= (animal.photos[0]) ? animal.photos[0].medium : 'https://place.dog/300/200' %>"/>
+        <div class="card-body">
+          <p class="card-title">Age: <%= animal.age %></p>
+          <p>Tags: <%= animal.tags %></p>
+          <form method="POST" action="/pages/favorites">
+            <input hidden value="<%= animal.name %>" name="name"/>
+            <input hidden value="<%= animal.photos[0].medium %>" name="photos"/>
+            <input hidden value="<%= animal.id %>" name="id"/>
+            <button class='btn fav-butt' type="submit">❤️</button>
+          </form>
+        </div>
+    </div>
   </div>
+
+<div class="d-flex flex-wrap flex-column justify-content-center align-items-center">
+  <form action="/pages/about/<%= animal.id %>" method="POST">
+  <div class="form">
+    <label for="content">Share your experience:</label>
+    <input type="text" class="form" id="content" name="content" placeholder='Tell us about the walk!' required></textarea>
+  </div>
+
+  <button class='btn butts' type="submit">Comment!</button>
+</form>
+</div>
   
+<div class="d-flex flex-wrap flex-column justify-content comment-box rounded p-3">
   <h2>Comments:</h2>
   <% walkComments.forEach(comment => { %>
+    <div class="comments rounded p-3 mb-3">
       <h3><%= comment.user.email %></h3>
       <p><%= comment.content %></p>
+      <div class="d-flex justify-content-evenly p-2">
         <form method="POST" action="/pages/about/<%= animal.id %>/?_method=DELETE">
             <input hidden value="<%= comment.id %>" name='id'/>
             <% if (comment.dataValues.user.id === user.id){ %>
@@ -34,14 +50,8 @@
                 <button class='btn butts-scary' type="submit">Edit!</button>
             <% } %>
         </form>
-    <% }) %>
-  
-  <form action="/pages/about/<%= animal.id %>" method="POST">
-    <div class="form">
-      <label for="content">Share your experience:</label>
-      <input type="text" class="form" id="content" name="content" placeholder='Tell us about the walk!' required></textarea>
+      </div>
     </div>
-  
-    <button class='btn butts' type="submit">Comment!</button>
-  </form>
+    <% }) %>
+</div>
 </div>

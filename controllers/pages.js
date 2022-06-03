@@ -175,7 +175,6 @@ router.post('/favorites', async (req, res) => {
         res.render('users/login', { msg: 'please log in to continue' })
         return // end the route here
     }
-    console.log(req.body)
     const [pet, created] = await db.pet.findOrCreate({
         where: {
             id: req.body.id,

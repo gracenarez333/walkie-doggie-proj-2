@@ -3,14 +3,16 @@
     <h1>These pups are lookin for someone to walk them today!</h1>
     <p>Their parents have busy lives, and would love some extra help! Find the right fit for you and help out a family today!</p>
 </div>
-<div class="container-fluid d-flex flex-wrap justify-content-evenly">
-    <% animals.forEach(animal => { %>
-        <div class="card my-3 my-cards">
-            <img class='dog-imgs' src= "<%= (animal.photos[0]) ? animal.photos[0].medium : 'https://place.dog/300/200' %>" class='card-img-top' alt="<%= animal.name %>'s photo"/>
-            <div class="card-body">
-                <h5 class="card-title"><%= animal.name %></h5>
-                <a href="/pages/about/<%= animal.id %>" class="btn butts">About Me!</a>
-            </div>
-        </div>
-    <% }) %>
-</div>
+    <div class="container-fluid d-flex flex-wrap justify-content-evenly">
+        <% animals.forEach(animal => { %>
+            <% if (animal.photos[0]) { %>
+                <div class="card my-3 my-cards">
+                    <img class='dog-imgs' src= "<%= (animal.photos[0]) ? animal.photos[0].medium : 'https://place.dog/300/200' %>" class='card-img-top' alt="<%= animal.name %>'s photo"/>
+                    <div class="card-body">
+                        <h5 class="card-title"><%= animal.name %></h5>
+                        <a href="/pages/about/<%= animal.id %>" class="btn butts">About Me!</a>
+                    </div>
+                </div>
+            <% } %>
+        <% }) %>
+    </div>
