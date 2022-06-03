@@ -36,6 +36,7 @@ router.get('/browse', async (req, res) => {
             },
           });
           allDogs = response.data.animals.filter(dog => dog.type === 'Dog')
+          console.log(allDogs)
         res.render('pages/browse', { user: res.locals.user, animals: allDogs })   
     } catch (err) {
         console.log(err, 'FIRE')
@@ -163,6 +164,7 @@ router.get('/favorites', async (req, res) => {
         }, include:[db.pet]
     })
     dog = animal[0].pets
+    console.log(dog)
     res.render('pages/favorites', { user: res.locals.user, animal: dog })
 })
 
@@ -173,17 +175,17 @@ router.post('/favorites', async (req, res) => {
         res.render('users/login', { msg: 'please log in to continue' })
         return // end the route here
     }
+    console.log(req.body)
     const [pet, created] = await db.pet.findOrCreate({
         where: {
             id: req.body.id,
-            photos: req.body.photos
+            photos: req.body.photos ? req.body.photos : 'https://place.dog/300/200'
         }, defaults: {
             name: req.body.name
         }
     })
     const user = await db.user.findByPk(res.locals.user.dataValues.id)
     user.addPet(pet)
-    console.log(user)
     res.redirect('/pages/favorites')
 })
 

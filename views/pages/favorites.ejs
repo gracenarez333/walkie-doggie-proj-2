@@ -4,7 +4,7 @@
 <div class="container-fluid d-flex flex-wrap justify-content-evenly">
     <% animal.forEach(animal => { %>
         <div class="card my-3 my-cards" style="width: 18rem; height: 30rem;">
-            <img src= "<%= (animal.photos[0]) ? animal.photos[0].medium : 'https://place.dog/300/200' %>" class='card-img-top dog-imgs'/>
+            <img src= "<%= animal.photos %>" class='card-img-top dog-imgs'/>
             <div class="card-body">
                 <h5 class="card-title"><%= animal.name %></h5>
                 <a href="/pages/about/<%= animal.id %>" class="btn btn-success">About Me!</a>

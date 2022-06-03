@@ -1,9 +1,9 @@
-# Adopt a pet!
+# Walkie Doggie!
 
 ## Overview
 
 ## Project Description
-You will use this app to view animals available for adoption and spotlight the one's you are interested in possibly adopting!
+You will use this app to view dogs in need of some company/care during the day. These pup parents have busy lives and would really appreciate the help. Take a buddy on a walk today!
 
 ## API usage
 I will be using the [adopt a pet API](https://www.adoptapet.com/public/apis/pet_list.html)
@@ -12,18 +12,26 @@ I will be using the [adopt a pet API](https://www.adoptapet.com/public/apis/pet_
 ![ERD](./img/erd.png)
 
 ## RESTful Routing Chart
-* this is still being edited i think
-
 
 | VERB | URL pattern | Action \(CRUD\) | Description |
 | :--- | :--- | :--- | :--- |
-| GET | / | Index \(Read\) | home page with login and  sign up |
-| GET | /login | New \(Read\) | login form |
-| POST | /signup | Create \(Create\) | creates a new user |
-| GET | /pet | Show \(Read\) | lists all available pets |
-| GET | /pet/:id | Show \(Read\) | list information about a specific pet |
-| PUT | /favs/:id | Update \(Update\) | adds a pet to favorites |
-| DELETE | /favs/pet/:id | Destroy \(Delete\) | deletes the pet from faves |
+| GET | / | Show \(Read\) | home page with login and  sign up links |
+| GET | /users/new | Show \(Read\) | create a new user |
+| POST | /users | New \(Read\) | renders a sign up form |
+| GET | /users/login | New \(Read\) | renders a login form |
+| POST | /users/login | Create \(Create\) | logs in existing user |
+| GET | /users/logout | Show \(Read\) | logs user out |
+| GET | /users/profile | Show \(Read\) | renders users profile page |
+| GET | /pages/home | Show \(Read\) | renders home page |
+| GET | /pages/browse | Show \(Read\) | renders browse page |
+| GET | /pages/about/:id | Show \(Read\) | renders about page with info on specific pet |
+| POST | /pages/about/:id | Create \(Create\) | creates comments connected to specific pet |
+| DELETE | /pages/about/:id | Destroy \(Delete\) | deletes comments connected to specific pet |
+| GET | /pages/edit/:id | Show \(Read\) | renders a form to edit existing comments |
+| PUT | /pages/edit/:id | Update \(Update\) | updates existing comment |
+| GET | /pages/favorites | Show \(Read\) | list users saved favorites |
+| POST | /pages/favorites | Create \(Create\) | list users saved favorites |
+| DELETE | /pages/favorites | Destroy \(Delete\) | list users saved favorites |
 
 ## Wireframes
 
@@ -37,11 +45,15 @@ I will be using the [adopt a pet API](https://www.adoptapet.com/public/apis/pet_
 ![Browse](./img/browse.png)
 # Profile
 ![Profile](./img/profile.png)
+# Favorites
+![Favorites]()
 # About
 ![About](./img/about.png)
+# Edit
+![Edit]()
 
 ## User Stories
-As a user I want to be able to ligin or sign up for an account so that I can browse available pets for adoption and save the ones that I am interested in. As a user I want to be able to look at my favorites, delete them, and also have them save after logout so that they are able to be accessed at different times.s
+As a user I want to be able to ligin or sign up for an account so that I can browse available pets for walking and save the ones that I am interested in. As a user I want to be able to look at my favorites, delete them, and also have them save after logout so that they are able to be accessed at different times. As well as saving to favorites, as a user I want to be able to comment on my favorites walk experiences and edit/delete comments.
 
 ## MVP Goals
 - [] Render all pages listed above
@@ -51,12 +63,13 @@ As a user I want to be able to ligin or sign up for an account so that I can bro
 - [] Login attempt messages and sign up messages
 - [] Render an error template
 - [] Ability to delete from favs
+- [] Ability to add comments to dogs
+- [] Ability to delete/edit comments
 - [] Logout and cookie clear ability
 - [] Save fav list information after logout
+- [] Only users loggin in can view their own favs and delete/edit comments they have made
 
 ## Stretch Goals
-- [] Add ability to 'Adopt' pet
 - [] Render a search by key words to increase user view
-- [] Add profile specifications for potential adoptees
-- [] Add breeds model table 
-- [] 2 levels of auth, adopter, adoptee
+- [] Add profile specifications for users
+- [] 2 levels of auth, walker, walkee
