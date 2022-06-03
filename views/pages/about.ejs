@@ -2,7 +2,7 @@
 <h1>All About <%= animal.name %>!</h1>
 <p>Take <%= animal.name %> on a walk today! Message <%= animal.name %>'s owner for more info on their walk and care schedule!</p>
 <!-- form to create a new fav -->
-<div class="d-flex">
+<div class="d-flex flex-wrap">
   <form method="POST" action="/pages/favorites">
       <input hidden value="<%= animal.name %>" name="name"/>
       <input hidden value="<%= animal.photos[0].medium %>" name="photos"/>
