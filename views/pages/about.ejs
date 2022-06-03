@@ -12,8 +12,7 @@
   <div class="card my-3 my-cards">
       <img class='card-img-top dog-imgs' src= "<%= (animal.photos[0]) ? animal.photos[0].medium : 'https://place.dog/300/200' %>"/>
       <div class="card-body">
-        <h2 class="card-title"><%= animal.name %></h2>
-        <p>Age: <%= animal.age %></p>
+        <p class="card-title">Age: <%= animal.age %></p>
         <p>Tags: <%= animal.tags %></p>
       </div>
   </div>
@@ -22,19 +21,19 @@
   <% walkComments.forEach(comment => { %>
       <h3><%= comment.user.email %></h3>
       <p><%= comment.content %></p>
-      <form method="POST" action="/pages/about/<%= animal.id %>/?_method=DELETE">
-          <input hidden value="<%= comment.id %>" name='id'/>
-          <% if (comment.dataValues.user.id === user.id){ %>
-               <button class='btn butts-scary' type="submit">Delete!</button>
-          <% } %>
-      </form>
-      <form method="GET" action="/pages/edit/<%= comment.id %>">
-          <input hidden type='number' value="<%= comment.id %>" name="id"/>
-          <input hidden type='number' value="<%= animal.id %>" name="animalId"/>
-          <% if (comment.dataValues.user.id === user.id){ %>
-              <button class='btn butts-scary' type="submit">Edit!</button>
-          <% } %>
-      </form>
+        <form method="POST" action="/pages/about/<%= animal.id %>/?_method=DELETE">
+            <input hidden value="<%= comment.id %>" name='id'/>
+            <% if (comment.dataValues.user.id === user.id){ %>
+                 <button class='btn butts-scary' type="submit">Delete!</button>
+            <% } %>
+        </form>
+        <form method="GET" action="/pages/edit/<%= comment.id %>">
+            <input hidden type='number' value="<%= comment.id %>" name="id"/>
+            <input hidden type='number' value="<%= animal.id %>" name="animalId"/>
+            <% if (comment.dataValues.user.id === user.id){ %>
+                <button class='btn butts-scary' type="submit">Edit!</button>
+            <% } %>
+        </form>
     <% }) %>
   
   <form action="/pages/about/<%= animal.id %>" method="POST">

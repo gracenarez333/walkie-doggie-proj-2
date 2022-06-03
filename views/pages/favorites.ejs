@@ -7,11 +7,13 @@
             <img src= "<%= animal.photos %>" class='card-img-top dog-imgs'/>
             <div class="card-body">
                 <h5 class="card-title"><%= animal.name %></h5>
-                <a href="/pages/about/<%= animal.id %>" class="btn butts">About Me!</a>
-                <form method="POST" action="/pages/favorites/?_method=DELETE">
-                    <input hidden value="<%= animal.id %>" name='id'/>
-                    <button class='btn butts-scary' type="submit">Delete!</button>
-                </form>
+                <div class="d-flex justify-content-evenly">
+                    <a href="/pages/about/<%= animal.id %>" class="btn butts">About Me!</a>
+                    <form method="POST" action="/pages/favorites/?_method=DELETE">
+                        <input hidden value="<%= animal.id %>" name='id'/>
+                        <button class='btn butts-scary' type="submit">Delete!</button>
+                    </form>
+                </div>
             </div>
         </div>
     <% }) %>

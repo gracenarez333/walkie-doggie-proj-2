@@ -5,6 +5,7 @@
 .my-cards {
     width: 18rem;
     height: 30rem;
+    border: 2px solid #896ec4;
 }
 
 .home-text {
@@ -12,8 +13,9 @@
 }
 
 .dog-imgs {
-    width: 18rem;
+    width: 17.75rem;
     height: 22rem;
+    border: solid 1px #896ec4;
 }
 
 .all {

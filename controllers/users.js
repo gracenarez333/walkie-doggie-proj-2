@@ -27,7 +27,7 @@ router.post('/', async (req, res, next) => {
             const encryptedId = cryptoJS.AES.encrypt(user.id.toString(), process.env.ENC_KEY).toString()
             res.cookie('userId', encryptedId)
             // redirect to the homepage (in the future--- to profile)
-            res.redirect('/')
+            res.redirect('/pages/home')
         } else {
         // if the user was not created
         // re render the login form with a message for the user
