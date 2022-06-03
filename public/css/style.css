@@ -26,8 +26,15 @@
 
 .butts {
     background-color: #8bb32e;
+    border: 1px solid black;
 }
 
 .butts-scary {
     background-color: #d3deba;
+    border: 1px solid black;
+}
+
+.fav-butt {
+    background-color: #e884c0;
+    border: 1px solid black;
 }
