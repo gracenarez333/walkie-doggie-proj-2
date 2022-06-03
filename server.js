@@ -83,6 +83,6 @@ app.use((error, req, res, next) => {
 })
 
 app.listen(PORT, () => {
-  console.log(`server is running on port ${PORT}`);
+  console.log(`suck my port: ${PORT} peni$`);
   rowdyRes.print()
 })

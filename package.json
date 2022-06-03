@@ -23,6 +23,7 @@
     "method-override": "^3.0.0",
     "pg": "^8.5.1",
     "rowdy-logger": "^1.0.2",
-    "sequelize": "^6.5.0"
+    "sequelize": "^6.5.0",
+    "sequelize-cli": "^6.4.1"
   }
 }
