@@ -35,22 +35,24 @@ I will be using the [adopt a pet API](https://www.adoptapet.com/public/apis/pet_
 
 ## Wireframes
 
-# Homepage
-![Homepage](./img/home.png)
+# On Load
+![load page](img/onload.png)
 # Login
-![Login](./img/login.png)
+![Login](img/login.png)
 # Sign Up
-![Sign Up](./img/signup.png)
+![Sign Up](img/signup.png)
+# Homepage
+![Homepage](img/home.png)
 # Browse
-![Browse](./img/browse.png)
-# Profile
-![Profile](./img/profile.png)
-# Favorites
-![Favorites]()
+![Browse](img/browse.png)
 # About
-![About](./img/about.png)
+![About](img/about.png)
+# Profile
+![Profile](img/profile.png)
+# Favorites
+![Favorites](img/favs.png)
 # Edit
-![Edit]()
+![Edit]((img/edit.png)
 
 ## User Stories
 As a user I want to be able to ligin or sign up for an account so that I can browse available pets for walking and save the ones that I am interested in. As a user I want to be able to look at my favorites, delete them, and also have them save after logout so that they are able to be accessed at different times. As well as saving to favorites, as a user I want to be able to comment on my favorites walk experiences and edit/delete comments.

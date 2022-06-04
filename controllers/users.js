@@ -80,7 +80,7 @@ router.post('/login', async (req, res, next) => {
 router.get('/logout', (req, res) => {
     // clear the cookie from storage and redirect to route
     res.clearCookie('userId')
-    res.redirect('/')
+    res.redirect('/users/login')
 })
 
 // GET /users/profile -- displays users profile pagr

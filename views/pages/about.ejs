@@ -21,9 +21,9 @@
 
 <div class="d-flex flex-wrap flex-column justify-content-center align-items-center">
   <form action="/pages/about/<%= animal.id %>" method="POST">
-  <div class="form">
+  <div class="form-floating comment-form">
+    <input class='form-control' type="text" class="form" id="content" name="content" placeholder='Tell us about the walk!' required></textarea>
     <label for="content">Share your experience:</label>
-    <input type="text" class="form" id="content" name="content" placeholder='Tell us about the walk!' required></textarea>
   </div>
 
   <button class='btn butts' type="submit">Comment!</button>
