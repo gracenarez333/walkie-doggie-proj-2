@@ -1,4 +1,5 @@
 # Walkie Doggie!
+Join [here!](https://walkie-doggie-project2.herokuapp.com/)
 
 ## Overview
 
