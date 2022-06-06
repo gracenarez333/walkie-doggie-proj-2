@@ -26,7 +26,7 @@ router.get('/browse', async (req, res) => {
     }
     try {
         const header = await accessToken()
-        const url = "https://api.petfinder.com/v2/animals";
+        const url = "https://api.petfinder.com/v2/animals&limit=100";
           const response = await axios({
             method: "get",
             url: url,
