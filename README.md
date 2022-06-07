@@ -10,7 +10,12 @@ You will use this app to view dogs in need of some company/care during the day. 
 I will be using the [adopt a pet API](https://www.adoptapet.com/public/apis/pet_list.html)
 
 ## Installation Instructions
-
+1. Fork and git clone repository
+2. Npm I (to install all dependencies)
+3. Create .env file and set ENC_KEY value of your desire in this folder
+4. Echo .env >> .gitignore & echo node_modules >> .gitignore
+5. Request key and secret from API, then set these values = API_KEY & API_SECRET also in the .env file
+6. Ready to go!
 
 ## ERD
 ![ERD](./img/erd.png)
@@ -26,16 +31,16 @@ I will be using the [adopt a pet API](https://www.adoptapet.com/public/apis/pet_
 | POST | /users/login | Create \(Create\) | logs in existing user |
 | GET | /users/logout | Show \(Read\) | logs user out |
 | GET | /users/profile | Show \(Read\) | renders users profile page |
-| GET | /pages/home | Show \(Read\) | renders home page |
-| GET | /pages/browse | Show \(Read\) | renders browse page |
-| GET | /pages/about/:id | Show \(Read\) | renders about page with info on specific pet |
-| POST | /pages/about/:id | Create \(Create\) | creates comments connected to specific pet |
-| DELETE | /pages/about/:id | Destroy \(Delete\) | deletes comments connected to specific pet |
-| GET | /pages/edit/:id | Show \(Read\) | renders a form to edit existing comments |
-| PUT | /pages/edit/:id | Update \(Update\) | updates existing comment |
-| GET | /pages/favorites | Show \(Read\) | list users saved favorites |
-| POST | /pages/favorites | Create \(Create\) | list users saved favorites |
-| DELETE | /pages/favorites | Destroy \(Delete\) | list users saved favorites |
+| GET | /users/home | Show \(Read\) | renders home page |
+| GET | /pets/browse | Show \(Read\) | renders browse page |
+| GET | /pets/:id | Show \(Read\) | renders about page with info on specific pet |
+| GET | /users/pets/favorites | Show \(Read\) | list users saved favorites |
+| POST | /pets/favorites | Create \(Create\) | list users saved favorites |
+| DELETE | /pets/favorites/:id | Destroy \(Delete\) | list users saved favorites |
+| POST | /pets/:id | Create \(Create\) | creates comments connected to specific pet |
+| DELETE | /pets/:petId/comments/:id | Destroy \(Delete\) | deletes comments connected to specific pet |
+| GET | /comments/:id/edit | Show \(Read\) | renders a form to edit existing comments |
+| PUT | /comments/:id/edit | Update \(Update\) | updates existing comment |
 
 ## Wireframes
 

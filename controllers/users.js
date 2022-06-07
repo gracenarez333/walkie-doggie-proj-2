@@ -27,11 +27,10 @@ router.post('/', async (req, res, next) => {
             const encryptedId = cryptoJS.AES.encrypt(user.id.toString(), process.env.ENC_KEY).toString()
             res.cookie('userId', encryptedId)
             // redirect to the homepage (in the future--- to profile)
-            res.redirect('/home')
+            res.redirect('/users/home')
         } else {
         // if the user was not created
         // re render the login form with a message for the user
-        console.log('that email exists already')
         res.render('users/new.ejs', { msg: 'email exists in the database already:('})
         }
     } catch (err) {
@@ -54,7 +53,6 @@ router.post('/login', async (req, res, next) => {
         const msg = 'are you sure you have an account?'
         // if the user is not found -- display the login form and give them an error message
         if (!foundUser) {
-            console.log('email not found')
             res.render('users/login', { msg })
             return // do not continue with the function
         }

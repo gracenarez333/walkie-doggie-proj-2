@@ -84,6 +84,6 @@ app.use((error, req, res, next) => {
 })
 
 app.listen(PORT, () => {
-  console.log(`suck my port: ${PORT} peni$`);
+  console.log(`listening on port: ${PORT}`);
   rowdyRes.print()
 })
