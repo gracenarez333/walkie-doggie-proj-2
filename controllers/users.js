@@ -27,7 +27,7 @@ router.post('/', async (req, res, next) => {
             const encryptedId = cryptoJS.AES.encrypt(user.id.toString(), process.env.ENC_KEY).toString()
             res.cookie('userId', encryptedId)
             // redirect to the homepage (in the future--- to profile)
-            res.redirect('/pages/home')
+            res.redirect('/home')
         } else {
         // if the user was not created
         // re render the login form with a message for the user
@@ -66,7 +66,7 @@ router.post('/login', async (req, res, next) => {
             const encryptedId = cryptoJS.AES.encrypt(foundUser.id.toString(), process.env.ENC_KEY).toString()
             res.cookie('userId', encryptedId)
             // TODO: redirect to profile
-            res.redirect('/pages/home')
+            res.redirect('/users/home')
         } else {
             // if not then render the login form with a message
             res.render('users/login', { msg })
@@ -91,6 +91,16 @@ router.get('/profile', (req, res) => {
         return // end the route here
     }
     res.render('users/profile', { user: res.locals.user })
+})
+
+// GET /home/home -- render a home page with a search query
+router.get('/home', (req, res) => {
+    // check if user is authorized
+    if (!res.locals.user) {
+        res.render('users/login', { msg: 'please log in to continue' })
+        return // end the route here
+    }
+    res.render('users/home', { user: res.locals.user })
 })
 
 module.exports = router
