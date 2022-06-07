@@ -20,7 +20,7 @@
   </div>
 
 <div class="d-flex flex-wrap flex-column justify-content-center align-items-center">
-  <form action="/pages/about/<%= animal.id %>" method="POST">
+  <form action="/pets/<%= animal.id %>" method="POST">
   <div class="form-floating comment-form">
     <input class='form-control' type="text" class="form" id="content" name="content" placeholder='Tell us about the walk!' required></textarea>
     <label for="content">Share your experience:</label>
@@ -37,13 +37,14 @@
       <h3><%= comment.user.email %></h3>
       <p><%= comment.content %></p>
       <div class="d-flex justify-content-evenly p-2">
-        <form method="POST" action="/pages/about/<%= animal.id %>/?_method=DELETE">
+        <form method="POST" action="/pets/<%= animal.id %>/comments/<%= comment.id %>/?_method=DELETE">
+            <input hidden value="<%= animal.id %>" name='petId'/>
             <input hidden value="<%= comment.id %>" name='id'/>
             <% if (comment.dataValues.user.id === user.id){ %>
                  <button class='btn butts-scary' type="submit">Delete!</button>
             <% } %>
         </form>
-        <form method="GET" action="/pages/edit/<%= comment.id %>">
+        <form method="GET" action="/comments/<%= comment.id %>/edit">
             <input hidden type='number' value="<%= comment.id %>" name="id"/>
             <input hidden type='number' value="<%= animal.id %>" name="animalId"/>
             <% if (comment.dataValues.user.id === user.id){ %>
