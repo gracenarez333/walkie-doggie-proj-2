@@ -1,4 +1,4 @@
-<link rel='stylesheet' href="../css/style.css"/>
+<link rel='stylesheet' href="/css/style.css"/>
 <h1>Look back on some of your favorite walk experiences!</h1>
 <p>Check back on old comments, make edits, walk again, and connect with other users who also walked these pups!</p>
 <div class="container-fluid d-flex flex-wrap justify-content-evenly">
@@ -9,7 +9,7 @@
                 <h5 class="card-title"><%= animal.name %></h5>
                 <div class="d-flex justify-content-evenly">
                     <a href="/pets/<%= animal.id %>" class="btn butts">About Me!</a>
-                    <form method="POST" action="/pages/favorites/?_method=DELETE">
+                    <form method="POST" action="/pets/favorites/<%= animal.id %>/?_method=DELETE">
                         <input hidden value="<%= animal.id %>" name='id'/>
                         <button class='btn butts-scary' type="submit">Delete!</button>
                     </form>

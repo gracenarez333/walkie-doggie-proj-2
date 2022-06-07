@@ -62,6 +62,47 @@ router.get('/:id', async (req, res) => {
     }
 })
 
+// POST /home/favorites -- create a new favorite
+router.post('/favorites', async (req, res) => {
+    // check if usser is authorized
+    if (!res.locals.user) {
+        res.render('users/login', { msg: 'please log in to continue' })
+        return // end the route here
+    }
+    const [pet, created] = await db.pet.findOrCreate({
+        where: {
+            id: req.body.id,
+            photos: req.body.photos ? req.body.photos : 'https://place.dog/300/200'
+        }, defaults: {
+            name: req.body.name
+        }
+    })
+    const user = await db.user.findByPk(res.locals.user.dataValues.id)
+    user.addPet(pet)
+    res.redirect('/users/pets/favorites')
+})
+
+// DELETE /home/favorites -- deletes a favorite from the list
+router.delete('/favorites/:id', async (req, res) => {
+    // check if user is authorized
+    if (!res.locals.user) {
+        res.render('users/login', { msg: 'please log in to continue' })
+        return // end the route here
+    }
+    try {
+        // find an instance
+        const instance = await db.pet.findOne({
+            where: {
+                id: req.body.id
+            }
+        })
+        await instance.destroy()
+        res.redirect('/users/pets/favorites')
+    } catch (err) {
+        console.log('FIRE', err)
+    }
+})
+
 // POST /pets/:id -- posts comments from annonymous users
 router.post('/:id', async (req, res) => {
     try {
@@ -78,7 +119,6 @@ router.post('/:id', async (req, res) => {
 
 // DELETE /pets/:id/comments/:id -- deletes a comment from the list
 router.delete('/:petId/comments/:id', async (req, res) => {
-    console.log('GUVIBFGFBDWVBGKVBGVBGWSGIKLSGD')
     // check if user is authorized
     if (!res.locals.user) {
         res.render('users/login', { msg: 'please log in to continue' })

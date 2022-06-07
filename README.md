@@ -9,6 +9,9 @@ You will use this app to view dogs in need of some company/care during the day. 
 ## API usage
 I will be using the [adopt a pet API](https://www.adoptapet.com/public/apis/pet_list.html)
 
+## Installation Instructions
+
+
 ## ERD
 ![ERD](./img/erd.png)
 

@@ -103,4 +103,21 @@ router.get('/home', (req, res) => {
     res.render('users/home', { user: res.locals.user })
 })
 
+
+// GET /pets/favorites -- render saved dogs list per user profile
+router.get('/pets/favorites', async (req, res) => {
+    // check if user is authorized
+    if (!res.locals.user) {
+        res.render('users/login', { msg: 'please log in to continue' })
+        return // end the route here
+    }
+    const animal = await db.user.findAll({
+        where: {
+            id: res.locals.user.dataValues.id
+        }, include:[db.pet]
+    })
+    dog = animal[0].pets
+    res.render('pages/favorites', { user: res.locals.user, animal: dog })
+})
+
 module.exports = router

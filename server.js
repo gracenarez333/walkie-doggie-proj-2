@@ -63,7 +63,6 @@ app.get('/', (req, res) => {
 
 // controllers
 app.use('/users', require('./controllers/users'))
-app.use('/pages', require('./controllers/pages'))
 app.use('/pets', require('./controllers/pets'))
 app.use('/comments', require('./controllers/comments'))
 
